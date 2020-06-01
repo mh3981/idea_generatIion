@@ -1,0 +1,19 @@
+type UserInfo @model {
+  id: ID!
+  name: String!
+  success_code: String
+
+  node_index: [Int]
+  node_parent: [Int]
+  node_value: [String]
+  node_time: [String]
+
+  click_index: [Int]
+  click_type: [Int]
+  click_time: [String]
+}
+
+type Seedword @model{
+  seed: String!
+  time_allowed: Int
+}

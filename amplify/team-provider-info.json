@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-ideatree-dev-194127-authRole",
+            "UnauthRoleArn": "arn:aws:iam::434580171111:role/amplify-ideatree-dev-194127-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::434580171111:role/amplify-ideatree-dev-194127-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-ideatree-dev-194127-deployment",
+            "UnauthRoleName": "amplify-ideatree-dev-194127-unauthRole",
+            "StackName": "amplify-ideatree-dev-194127",
+            "StackId": "arn:aws:cloudformation:us-east-1:434580171111:stack/amplify-ideatree-dev-194127/58587460-a1a1-11ea-9254-12da3ecd6186",
+            "AmplifyAppId": "d2zuflk9yeyc8b"
+        }
+    }
+}
