@@ -162,7 +162,7 @@
 
         $("#initialize_node_btn" ).click(function(e) {
             var seedword = sessionStorage.getItem("seedword")
-            console.log("????", seedword)
+            // console.log("????", seedword)
             nodes[1].data.name = seedword
             self.draw();
             e.stopPropagation();
@@ -205,6 +205,7 @@
 
             const userInfo = { name: "test",
                                 success_code: success_code(),
+                                invitation_code: sessionStorage.getItem("invitation_code"),
                                 node_index: node_id_data,
                                 node_parent: node_parent_data,
                                 node_value: node_value_data,
@@ -216,6 +217,7 @@
             
             var jsonObject = JSON.stringify(userInfo);
             sessionStorage.setItem("tree_data_obj", jsonObject);
+            // console.log('invitation code is: ', sessionStorage.getItem("invitation_code"))
             
             // document.getElementById('cloud_api_button').click({userInfo: userInfo})
             
@@ -305,8 +307,8 @@
             self.addNode({id: nextId, name: '', parent: parentId});
 
             // console.log(sessionStorage.getItem("latest_node_position"))
-            console.log($("#"+sessionStorage.getItem("latest_node_position")).offset())
-            console.log($("#orgChartContainer").offset())
+            // console.log($("#"+sessionStorage.getItem("latest_node_position")).offset())
+            // console.log($("#orgChartContainer").offset())
 
 
             if($("#"+sessionStorage.getItem("latest_node_position")).offset().left > (-150+window.innerWidth)){

@@ -7,6 +7,7 @@ export const onCreateUserInfo = /* GraphQL */ `
       id
       name
       success_code
+      invitation_code
       node_index
       node_parent
       node_value
@@ -25,6 +26,7 @@ export const onUpdateUserInfo = /* GraphQL */ `
       id
       name
       success_code
+      invitation_code
       node_index
       node_parent
       node_value
@@ -43,6 +45,7 @@ export const onDeleteUserInfo = /* GraphQL */ `
       id
       name
       success_code
+      invitation_code
       node_index
       node_parent
       node_value

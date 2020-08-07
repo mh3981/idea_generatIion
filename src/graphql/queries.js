@@ -7,6 +7,7 @@ export const getUserInfo = /* GraphQL */ `
       id
       name
       success_code
+      invitation_code
       node_index
       node_parent
       node_value
@@ -30,6 +31,7 @@ export const listUserInfos = /* GraphQL */ `
         id
         name
         success_code
+        invitation_code
         node_index
         node_parent
         node_value

@@ -2,6 +2,7 @@ type UserInfo @model {
   id: ID!
   name: String!
   success_code: String
+  invitation_code: String
 
   node_index: [Int]
   node_parent: [Int]

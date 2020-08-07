@@ -32,6 +32,7 @@ async function get_seed_word() {
         console.log(sessionStorage)
 
         document.getElementById("orgChartContainer").style.visibility='visible'
+        document.getElementById("index_loading_hint").style.display='none'
         document.getElementById("initialize_node_btn").click()
 
         ReactDOM.render(

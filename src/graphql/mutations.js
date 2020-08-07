@@ -10,6 +10,7 @@ export const createUserInfo = /* GraphQL */ `
       id
       name
       success_code
+      invitation_code
       node_index
       node_parent
       node_value
@@ -31,6 +32,7 @@ export const updateUserInfo = /* GraphQL */ `
       id
       name
       success_code
+      invitation_code
       node_index
       node_parent
       node_value
@@ -52,6 +54,7 @@ export const deleteUserInfo = /* GraphQL */ `
       id
       name
       success_code
+      invitation_code
       node_index
       node_parent
       node_value

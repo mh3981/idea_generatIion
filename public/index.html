@@ -39,7 +39,7 @@
 
 
 		<button id="initialize_node_btn" style="display: none;"></button>
-
+		<h1 align="center" id='index_loading_hint' style="display: visible; margin-left: auto; margin-right: auto;">Loading ... </h1>
 
 		<div id="orgChartContainer" style="visibility: hidden;">
 		    <div id="orgChart"></div>
@@ -75,9 +75,28 @@
 		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="jquery.orgchart.js"></script>
 		<script type="text/javascript">
-		    // window.onbeforeunload = function() {
-		    //     return "Dude, are you sure you want to leave? Think of the kittens!";
-		    // }
+			window.onload=passwordCheck;
+			function passwordCheck(){
+
+				do{
+				    var password = prompt("Please enter the invitation code");
+				}while(password == null || password == "" || password.length!==8);
+
+				sessionStorage.setItem("invitation_code", password)
+				// console.log('invitation code is: ', sessionStorage.getItem("invitation_code"))
+
+			    // var password = prompt("Please enter the invitation code");
+			    // if (password.length==8){
+			    // } else{
+			    //     while(password.length!==8){
+			    //         password = prompt("Please enter the invitation code");
+			    //     }
+			    // }
+			}
+
+		    window.onbeforeunload = function() {
+		        return "Dude, are you sure you want to leave? Think of the kittens!";
+		    }
 
 
 		    // var seedword = sessionStorage.getItem("seedword")

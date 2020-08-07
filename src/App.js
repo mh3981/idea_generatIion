@@ -40,7 +40,7 @@ function App() {
         console.log(obj)
 
         get_data()
-        console.log(userInfo1)
+        // console.log(userInfo1)
         // const api_response = API.graphql(graphqlOperation(createUserInfo, {input: userInfo1}));
         // console.log(userInfo)
         // console.log(api_response)

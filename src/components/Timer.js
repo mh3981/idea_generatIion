@@ -47,7 +47,7 @@ export default class Timer extends Component {
 
         var json_string = sessionStorage.getItem("tree_data_obj");
         var obj = JSON.parse(json_string)
-        console.log(obj)
+        // console.log(obj)
 
         const api_response = await API.graphql(graphqlOperation(createUserInfo, {input: obj}));
 
