@@ -169,6 +169,14 @@
         });
 
 
+        // $("#cap_screen_btn" ).click(function(e) {
+        //     html2canvas(document.querySelector("#orgChartContainer")).then(canvas => {
+        //         document.body.appendChild(canvas)
+        //     });
+        //     e.stopPropagation();
+        // });
+
+
 
         $("#send_api_request").click(function(e){
             // console.log("seriously")

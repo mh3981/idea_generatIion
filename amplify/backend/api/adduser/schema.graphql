@@ -2,7 +2,7 @@ type UserInfo @model {
   id: ID!
   name: String!
   success_code: String
-  invitation_code: String
+  invitation_code: String   
 
   node_index: [Int]
   node_parent: [Int]
@@ -17,4 +17,10 @@ type UserInfo @model {
 type Seedword @model{
   seed: String!
   time_allowed: Int
+
+}
+
+
+type Description @model {
+  value: String
 }

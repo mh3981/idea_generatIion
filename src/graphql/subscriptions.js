@@ -88,3 +88,30 @@ export const onDeleteSeedword = /* GraphQL */ `
     }
   }
 `;
+export const onCreateDescription = /* GraphQL */ `
+  subscription OnCreateDescription {
+    onCreateDescription {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateDescription = /* GraphQL */ `
+  subscription OnUpdateDescription {
+    onUpdateDescription {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteDescription = /* GraphQL */ `
+  subscription OnDeleteDescription {
+    onDeleteDescription {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;

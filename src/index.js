@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 import {createUserInfo} from '../src/graphql/mutations';
 import {listSeedwords} from '../src/graphql/queries';
+import {listDescriptions} from '../src/graphql/queries'
 import { API, graphqlOperation } from "aws-amplify";
 
 import Amplify from 'aws-amplify';
@@ -24,16 +25,26 @@ async function get_seed_word() {
         const api_response = await API.graphql(graphqlOperation(listSeedwords));
         var seedword_list = api_response.data.listSeedwords.items
         var idx = Math.floor(Math.random() * seedword_list.length)
-
         sessionStorage.setItem("seedword", seedword_list[idx].seed);
         sessionStorage.setItem("time_allowed_sec", seedword_list[idx].time_allowed%60);
         sessionStorage.setItem("time_allowed_min", parseInt(seedword_list[idx].time_allowed/60));
+        console.log('Success: fetch seed word info')
 
-        console.log(sessionStorage)
+        const api_response2 = await API.graphql(graphqlOperation(listDescriptions));
+        var desc_list = api_response2.data.listDescriptions.items
+        var idx = Math.floor(Math.random() * desc_list.length)
+        sessionStorage.setItem("description", desc_list[idx].value);
+        console.log('Success: fetch description info')
+
+        // console.log(sessionStorage)
 
         document.getElementById("orgChartContainer").style.visibility='visible'
         document.getElementById("index_loading_hint").style.display='none'
         document.getElementById("initialize_node_btn").click()
+
+        // document.getElementById('idea_instruction').innerHTML = "<h1 style='padding: 10px; font-size: 16px; text-align: left;' >"+sessionStorage.getItem("description")+"</h1>"
+        document.getElementById('idea_instruction').innerHTML = sessionStorage.getItem("description")
+
 
         ReactDOM.render(
             <React.StrictMode>
@@ -47,7 +58,7 @@ async function get_seed_word() {
 
 
     } catch (err) { 
-        console.log('error fetching seed word') 
+        console.log('error in initialization') 
     }
 };
 

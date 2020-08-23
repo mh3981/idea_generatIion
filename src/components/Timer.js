@@ -47,15 +47,73 @@ export default class Timer extends Component {
 
         var json_string = sessionStorage.getItem("tree_data_obj");
         var obj = JSON.parse(json_string)
-        // console.log(obj)
+        var node_index = obj['node_index']
+        var node_value = obj['node_value']
+        var array_length = 1
+        if (node_index.length>node_value.length){
+            array_length = node_value.length
+        } else {
+            array_length = node_index.length
+        }
 
-        const api_response = await API.graphql(graphqlOperation(createUserInfo, {input: obj}));
+
+        // const api_response = await API.graphql(graphqlOperation(createUserInfo, {input: obj}));
 
         document.getElementById('root').innerHTML = ""
-        document.getElementById('orgChartContainer').innerHTML = "<h1 style='padding: 10px'>You finished the work, please copy your verification code: "+obj.success_code+"</h1>"
+        // document.getElementById('orgChartContainer').innerHTML = "<h1 style='padding: 10px'>You finished the work, please copy your verification code: "+obj.success_code+"</h1>"
+        document.getElementById('idea_instruction').innerHTML = "<h1 style='padding: 10px; font-size: 16px'>You finished the work, please copy your verification code: <br>"+obj.success_code+"</h1>"
+
+        // document.getElementById('orgChartContainer').innerHTML = ""
+        // for (var i=1 ; i<=array_length; i++){
+        //     document.getElementById('orgChartContainer').innerHTML += "<h3 style='padding: 10px'>" +node_index[i] + " : " + node_value[i] + "</h3>"
+        // }
+
+
         alert("You finished the work, please copy your verification code: "+obj.success_code);
 
-        sessionStorage.clear();
+
+        // create and save csv file
+        try{
+            var csv = 'index,idea\n';
+
+            var tree_data = []
+            tree_data.push([1, sessionStorage.getItem("seedword")])
+            for (var i=1 ; i<=array_length; i++){
+                var temp_data = []
+                temp_data.push(node_index[i])
+                temp_data.push(node_value[i])
+                tree_data.push(temp_data)
+            }
+
+            tree_data.forEach(function(row) {
+                    csv += row.join(',');
+                    csv += "\n";
+            });
+
+            var hiddenElement = document.createElement('a');
+            hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+            hiddenElement.target = '_blank';
+            hiddenElement.download = 'idea list.csv';
+            hiddenElement.click();
+
+        } catch (e){
+            console.log('fail to download the idea list')
+            console.log(e)
+        }
+
+
+        // try{
+            // html2canvas(document.querySelector("#orgChartContainer")).then(canvas => {
+            //     document.body.appendChild(canvas)
+            // });
+        //     document.getElementById("cap_screen_btn").click()
+        // }catch (e){
+        //     console.log('Fail to cache screen shot')
+        //     console.log(e)
+        // }
+
+
+        // sessionStorage.clear();
     };
 
     render() {
@@ -72,6 +130,7 @@ export default class Timer extends Component {
         };
         const rightDivStyle = {
             // float: 'right',
+            display: 'none',
             padding: '10px',
         };
         const timeCountStyle = {
@@ -86,9 +145,11 @@ export default class Timer extends Component {
                         : <h1 style={timeCountStyle}>{minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
                     }
                 </div>
+
                 <div style={rightDivStyle}>
                     <Button id="upload_user_info_btn" primary onClick={this.upload_user_info}>Submit</Button>
                 </div>
+                
             </div>
         )
     }

@@ -73,3 +73,28 @@ export const listSeedwords = /* GraphQL */ `
     }
   }
 `;
+export const getDescription = /* GraphQL */ `
+  query GetDescription($id: ID!) {
+    getDescription(id: $id) {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listDescriptions = /* GraphQL */ `
+  query ListDescriptions(
+    $filter: ModelDescriptionFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDescriptions(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        value
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

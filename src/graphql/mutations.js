@@ -106,3 +106,39 @@ export const deleteSeedword = /* GraphQL */ `
     }
   }
 `;
+export const createDescription = /* GraphQL */ `
+  mutation CreateDescription(
+    $input: CreateDescriptionInput!
+    $condition: ModelDescriptionConditionInput
+  ) {
+    createDescription(input: $input, condition: $condition) {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateDescription = /* GraphQL */ `
+  mutation UpdateDescription(
+    $input: UpdateDescriptionInput!
+    $condition: ModelDescriptionConditionInput
+  ) {
+    updateDescription(input: $input, condition: $condition) {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteDescription = /* GraphQL */ `
+  mutation DeleteDescription(
+    $input: DeleteDescriptionInput!
+    $condition: ModelDescriptionConditionInput
+  ) {
+    deleteDescription(input: $input, condition: $condition) {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
