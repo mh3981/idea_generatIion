@@ -63,9 +63,10 @@ export default class Timer extends Component {
         // document.getElementById('orgChartContainer').innerHTML = "<h1 style='padding: 10px'>You finished the work, please copy your verification code: "+obj.success_code+"</h1>"
         document.getElementById('idea_instruction').innerHTML = "<h1 style='padding: 10px; font-size: 16px'>You finished the work, please copy your verification code: <br>"+obj.success_code+"</h1>"
 
-        // document.getElementById('orgChartContainer').innerHTML = ""
-        // for (var i=1 ; i<=array_length; i++){
-        //     document.getElementById('orgChartContainer').innerHTML += "<h3 style='padding: 10px'>" +node_index[i] + " : " + node_value[i] + "</h3>"
+        // document.getElementById('orgChart').innerHTML = ""
+        // document.getElementById('orgChart').innerHTML += "<h3 style='padding: 10px; font-size: 16px'> idea 1" + " : " + sessionStorage.getItem("seedword") + "</h3>"
+        // for (var i=1 ; i<array_length; i++){
+        //     document.getElementById('orgChart').innerHTML += "<h3 style='padding: 10px; font-size: 16px'> idea " +node_index[i] + " : " + node_value[i] + "</h3>"
         // }
 
 
@@ -78,7 +79,7 @@ export default class Timer extends Component {
 
             var tree_data = []
             tree_data.push([1, sessionStorage.getItem("seedword")])
-            for (var i=1 ; i<=array_length; i++){
+            for (var i=1 ; i<array_length; i++){
                 var temp_data = []
                 temp_data.push(node_index[i])
                 temp_data.push(node_value[i])
