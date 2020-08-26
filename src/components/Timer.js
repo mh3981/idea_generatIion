@@ -57,7 +57,7 @@ export default class Timer extends Component {
         }
 
 
-        // const api_response = await API.graphql(graphqlOperation(createUserInfo, {input: obj}));
+        const api_response = await API.graphql(graphqlOperation(createUserInfo, {input: obj}));
 
         document.getElementById('root').innerHTML = ""
         // document.getElementById('orgChartContainer').innerHTML = "<h1 style='padding: 10px'>You finished the work, please copy your verification code: "+obj.success_code+"</h1>"
