@@ -211,7 +211,7 @@
               return Math.random().toString(36).substr(2, 6);
             };
 
-            const userInfo = { name: "test - michael - Aug 26th",
+            const userInfo = { name: "study_1",
                                 success_code: success_code(),
                                 invitation_code: sessionStorage.getItem("invitation_code"),
                                 node_index: node_id_data,
